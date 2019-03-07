@@ -26,6 +26,16 @@ gem 'formtastic', '~> 3.0', github: 'r-spell/boomtastic', branch: 'boomtastic'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 
+gem 'bootstrap-sass'
+
+gem 'devise'
+
+gem 'bcrypt-ruby', '3.1.0', :require => 'bcrypt'
+
+gem 'rails_admin', '~> 1.3'
+
+gem 'cancancan', '~> 2.0'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

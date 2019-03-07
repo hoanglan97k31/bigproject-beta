@@ -1,0 +1,15 @@
+<%= render partial: "navbar" %>
+<div class="container">
+<br><br><br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Product Tittle</th>
+      <th scope="col">Product Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Category</th>
+    </tr>
+  </thead>
+  <%= render partial: "product", collection: @products %>
+</table>
+</div>
