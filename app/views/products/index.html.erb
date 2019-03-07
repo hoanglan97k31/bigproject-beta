@@ -8,8 +8,10 @@
       <th scope="col">Product Description</th>
       <th scope="col">Price</th>
       <th scope="col">Category</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Buy</th>
     </tr>
   </thead>
-  <%= render partial: "product", collection: @products %>
+  <%= render partial: "product", collection: @products, order_item: @order_item %>
 </table>
 </div>

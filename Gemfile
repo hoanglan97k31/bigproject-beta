@@ -28,6 +28,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'bootstrap-sass'
 
+gem 'jquery-rails'
+
 gem 'devise'
 
 gem 'bcrypt-ruby', '3.1.0', :require => 'bcrypt'
@@ -35,6 +37,8 @@ gem 'bcrypt-ruby', '3.1.0', :require => 'bcrypt'
 gem 'rails_admin', '~> 1.3'
 
 gem 'cancancan', '~> 2.0'
+
+gem 'activemerchant'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

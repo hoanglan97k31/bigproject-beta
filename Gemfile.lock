@@ -42,6 +42,11 @@ GEM
     activejob (5.2.2)
       activesupport (= 5.2.2)
       globalid (>= 0.3.6)
+    activemerchant (1.91.0)
+      activesupport (>= 4.2)
+      builder (>= 2.1.2, < 4.0.0)
+      i18n (>= 0.6.9)
+      nokogiri (~> 1.4)
     activemodel (5.2.2)
       activesupport (= 5.2.2)
     activerecord (5.2.2)
@@ -290,6 +295,7 @@ PLATFORMS
   x64-mingw32
 
 DEPENDENCIES
+  activemerchant
   awesome_print
   bcrypt-ruby (= 3.1.0)
   better_errors
@@ -305,6 +311,7 @@ DEPENDENCIES
   duktape
   formtastic (~> 3.0)!
   jbuilder (~> 2.5)
+  jquery-rails
   pry-byebug
   pry-doc
   pry-rails
