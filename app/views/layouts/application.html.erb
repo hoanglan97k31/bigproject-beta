@@ -11,6 +11,7 @@
 
   <body>
     <div class="container">
+      <%= render file: "products/_navbar.html.erb" %>
     <hr>
     <%- flash.each do |name,msg| %>
      <%= content_tag :div, msg, class: name %>

@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
     before_action :find_product, only: [ :show ]
   def index
-    @products = Product.includes(:category)
+    @products = Product.includes(:category).all.page(params[:page]).per(10)
     @order_item = current_order.order_items.new
   end
 

@@ -1,7 +1,7 @@
 <tbody>
     <tr>
       <th scope="row"><%= link_to(product.tittle, product_path(product)) %></th>
-      <%= form_for @order_item, remote: true do |f| %>
+      <%= form_for @order_item do |f| %>
       <td><%= product.description %></td>
       <td><%= product.price %></td>
       <td><%= product.category.name %></td>
@@ -10,4 +10,5 @@
       <td><%= f.submit "Add to Cart", class: "btn btn-primary" %></td>
       <% end %>
     </tr>
+    
 </tbody>
