@@ -6,4 +6,5 @@ class Product < ApplicationRecord
   validates :tittle, :description, :price, presence: true
   
   default_scope { where(published: true) }
+  default_scope {order('created_at DESC')}
 end
