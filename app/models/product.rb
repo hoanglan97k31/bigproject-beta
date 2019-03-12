@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
 
-  belongs_to :category
+  belongs_to :category, required: false
   has_many :order_items
 
   validates :tittle, :description, :price, presence: true
