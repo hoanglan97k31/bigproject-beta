@@ -1,7 +1,7 @@
 <%= form_for order_item do |f| %>
                     <tbody>
                         <tr>
-                            <td><img src="https://dummyimage.com/50x50/55595c/fff" /> </td>
+                            <td><%= image_tag(image_path("#{product.image_url}"), :height => "60px",:width => "80px") %></td>
                             <td><%= product.tittle %></td>
                             <td><div class="col-xs-4">
                                   <%= f.number_field :quantity, value: order_item.quantity.to_i, class: "form-control", min: 1 %>
@@ -17,3 +17,4 @@
                         </tr>
                     </tbody>
                      <% end %>
+                     

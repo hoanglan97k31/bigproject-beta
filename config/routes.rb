@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :registrations
+  #resources :registrations
   concern :paginatable do
     get '(page/:page)', action: :index, on: :collection, as: ''
   end
