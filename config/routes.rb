@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  #resources :registrations
   concern :paginatable do
     get '(page/:page)', action: :index, on: :collection, as: ''
   end
@@ -16,8 +17,10 @@ Rails.application.routes.draw do
   resources :order_items, only: [:create, :update, :destroy]
   root to: 'products#index'
 
+  resources :categories do
+    member do
+      get :products
+    end
+  end
   
-
-
-
 end
