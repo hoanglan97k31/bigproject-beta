@@ -1,0 +1,47 @@
+section#order-content
+  section#ruby
+    section.detailed-syllabus
+      .wrapper-inside
+        = form_for @payment, html: { class: "basic-grey" } do |f|
+          - if @payment.errors.any?
+            #error_explanation
+              h2
+                = pluralize(@payment.errors.count, "error")
+                | prohibited this payment from being saved:
+              ul
+                - @payment.errors.full_messages.each do |message|
+                  li= message
+          .field
+            = f.hidden_field :order_id, value: @order.id
+          .field
+            = f.label :full_name
+            = f.text_field :full_name
+          .field
+            = f.label :company
+            = f.text_field :company
+          .field
+            = f.label :email
+            = f.text_field :email
+          .field
+            = f.label :telephone
+            = f.text_field :telephone
+          = javascript_include_tag "https://js.stripe.com/v2/"
+          javascript:
+            | Stripe.setPublishableKey('#{Rails.application.secrets.stripe_publishable_key}');
+
+          = label_tag "Card Number", nil, required: true
+          .control-group
+            .controls
+              = text_field_tag :card_number, nil, class: "input-block-level", "data-stripe" => "number"
+
+          = label_tag "Card Verification", nil, required: true
+          .control-group
+            .controls
+              = text_field_tag :card_verification, nil, class: "input-block-level", "data-stripe" => "cvv"
+
+          = label_tag "Card Expires", nil, required: true
+          = select_tag :exp_month, options_for_select(Date::MONTHNAMES.compact.each_with_index.map { |name,i| ["#{i+1} - #{name}", i+1] }), include_blank: false, "data-stripe" => "exp-month", class: "span2"
+          = select_tag :exp_year, options_for_select((Date.today.year..(Date.today.year+10)).to_a), include_blank: false, "data-stripe" => "exp-year", class: "span1"
+
+          .actions
+            = f.submit "payment Payment", class: "btn", style: "color: white;background: rgb(242, 118, 73);"

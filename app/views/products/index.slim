@@ -1,0 +1,22 @@
+br
+br
+br
+table.table
+  thead
+    tr
+      th[scope="col"]
+        | Product Tittle
+      th[scope="col"]
+        | Product Image
+      th[scope="col"]
+        | Product Description
+      th[scope="col"]
+        | Price
+      th[scope="col"]
+        | Category
+      th[scope="col"]
+        | Quantity
+      th[scope="col"]
+        | Buy
+  = render partial: "product", collection: @products, order_item: @order_item
+= paginate @products, theme: 'twitter-bootstrap-3'
