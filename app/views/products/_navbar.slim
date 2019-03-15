@@ -1,0 +1,32 @@
+nav.navbar.navbar-expand-lg.navbar-light.bg-light
+  |    
+  a.navbar-brand[href="/products"]
+    img[src="https://jobsgo.vn/media/img/employer/533-100x100.jpg" alt="Simply Easy Learning" width="50" height="50"]
+  button.navbar-toggler[type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"]
+    span.navbar-toggler-icon
+  #navbarSupportedContent.collapse.navbar-collapse
+    ul.navbar-nav.mr-auto
+      li.nav-item.active
+        a.nav-link[href="categories"]
+          | Fruits
+          span.sr-only
+            | (current)
+      li.nav-item.active
+        a.nav-link[href="#"]
+          | About Us
+          span.sr-only
+            | (current)
+    form.form-inline.my-2.my-lg-0
+      = link_to "#{current_order.order_items.size} Items in Cart ( #{number_to_currency current_order.subtotal} )", cart_path, class: "btn btn-link"
+      a.nav-link
+        = link_to('Login', new_user_session_path)
+        span.sr-only
+          | (current)
+      a.nav-link
+        = link_to "Logout", destroy_user_session_path, :method => :delete
+        span.sr-only
+          | (current)
+      a.nav-link
+        = link_to('Edit registration', edit_user_registration_path)
+        span.sr-only
+          | (current)

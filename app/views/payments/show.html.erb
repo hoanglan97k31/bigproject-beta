@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Full name:</strong>
+  <%= @payment.full_name %>
+</p>
+
+<p>
+  <strong>Company:</strong>
+  <%= @payment.company %>
+</p>
+
+<p>
+  <strong>Telephone:</strong>
+  <%= @payment.telephone %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @payment.email %>
+</p>
+
+<%= link_to 'Edit', edit_payment_path(@payment) %> |
+<%= link_to 'Back', payments_path %>

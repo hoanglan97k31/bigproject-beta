@@ -1,0 +1,19 @@
+= form_for order_item do |f|
+  tbody
+    tr
+      td
+        = image_tag(image_path("#{product.image_url}"), :height => "60px",:width => "80px")
+      td
+        = product.tittle
+      td
+        .col-xs-4
+          = f.number_field :quantity, value: order_item.quantity.to_i, class: "form-control", min: 1
+          = f.hidden_field :product_id, value: product.id
+      td
+        .btn-group
+          = f.submit "Update Quantity", class: "btn btn-primary"
+          = link_to "Delete", order_item, { data: { confirm: "Are you sure you wish to delete the product '#{order_item.product.tittle}' from your cart?" }, method: :delete, class: "btn btn-danger" }
+      td.text-right
+        = number_to_currency order_item.unit_price
+      td.text-right
+        = number_to_currency order_item.total_price

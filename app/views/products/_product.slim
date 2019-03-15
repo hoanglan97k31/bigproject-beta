@@ -1,0 +1,18 @@
+tbody
+  tr
+    th[scope="row"]
+      = link_to(product.tittle, product_path(product))
+    = form_for @order_item do |f|
+      td
+        = image_tag(image_path("#{product.image_url}"), :height => "60px",:width => "80px")
+      td
+        = product.description
+      td
+        = product.price
+      td
+        = product.category.name
+      td
+        = f.number_field :quantity, value: 1, class: "form-control", min: 1
+      = f.hidden_field :product_id, value: product.id
+      td
+        = f.submit "Add to Cart", class: "btn btn-primary"

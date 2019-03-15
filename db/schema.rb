@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_07_072453) do
+ActiveRecord::Schema.define(version: 2019_03_15_031550) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -59,14 +59,27 @@ ActiveRecord::Schema.define(version: 2019_03_07_072453) do
     t.index ["order_status_id"], name: "index_orders_on_order_status_id"
   end
 
+  create_table "payments", force: :cascade do |t|
+    t.string "full_name"
+    t.string "company"
+    t.string "telephone"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "card_token"
+    t.integer "order_item_id"
+    t.index ["order_item_id"], name: "index_payments_on_order_item_id"
+  end
+
   create_table "products", force: :cascade do |t|
     t.string "tittle"
     t.text "description"
-    t.decimal "price", precision: 12, scale: 2
+    t.integer "price"
     t.boolean "published"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "category_id"
+    t.string "image_url"
     t.index ["category_id"], name: "index_products_on_category_id"
   end
 

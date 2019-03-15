@@ -1,0 +1,48 @@
+- if !@order_item.nil? && @order_item.errors.any?
+  .alert.alert-danger
+    ul
+      - @order_item.errors.full_messages.each do |msg|
+        li
+          = msg
+- if @order.order_items.size == 0
+  p.text-center
+    |  There are no items in your shopping cart. Please 
+    = link_to "go back", root_path
+    |  and add some items to your cart. 
+- else
+  link#bootstrap-css[href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet"]
+  script[src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"]
+  script[src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"]
+  .container.mb-4
+    .row
+      .col-12
+        .table-responsive
+          table.table.table-striped
+            thead
+              tr
+                th[scope="col"]
+                  | Image
+                th[scope="col"]
+                  | Product
+                th.text-center[scope="col"]
+                  | Quantity
+                th.text-center[scope="col"]
+                  | Update Quantity/Delete
+                th.text-right[scope="col"]
+                  | Price
+                th.text-right[scope="col"]
+                  | Total Price Unit
+            - @order.order_items.each do |order_item|
+              = render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true
+          h5
+          p[align="right"]
+            | Total: 
+            = number_to_currency current_order.subtotal
+      .col.mb-2
+        .row
+          .col-sm-12.col-md-6
+            a.btn.btn-block.btn-light[href="/products" role="button"]
+              | Continue Shopping
+          .col-sm-12.col-md-6
+            a.btn.btn-block.btn-success[href="/payments" role="button"]
+              | Check Out
