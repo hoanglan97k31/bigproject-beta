@@ -48,7 +48,7 @@ gem 'bootstrap-kaminari-views'
 
 gem 'carrierwave', '~> 1.0'
 
-gem 'stripe-rails'
+gem 'stripe'
 
 gem 'rolify'
 

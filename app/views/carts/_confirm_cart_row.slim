@@ -1,0 +1,13 @@
+= form_for order_item do |f|
+  tbody
+    tr
+      td
+        = image_tag(image_path("#{product.image_url}"), :height => "60px",:width => "80px")
+      td
+        = product.tittle
+      td
+        = order_item.quantity.to_i   
+      td.text-right
+        = number_to_currency order_item.unit_price
+      td.text-right
+        = number_to_currency order_item.total_price
